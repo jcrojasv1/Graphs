@@ -45,10 +45,21 @@ class Graph:
             self.edges[v2][v1] = weight
         
     def deleteVertex(self,v):
+        "Deletes the vertex given"
+        
         self.verteces.pop(v)
         
     def DFS(self,init):
+        "Returns a DFS path starting in the vertex given"
+        
         dfs.dfs(self,init)
         path = dfs.dfs(self,init)
+        self.track = path
         
         return path
+    
+    def isPath(self,init,final):
+        if init in self.track and final in self.track:
+            return True
+        else:
+            return False
